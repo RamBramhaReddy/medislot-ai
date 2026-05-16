@@ -1,0 +1,49 @@
+{
+  "univariate": {
+    "age": "Largest spike at age 0 — infant appointments brought by parents. Distribution spreads across 20-60 age range with gradual decline after 60. Working age adults visit clinics most. Very few patients above 80.",
+    "waiting_days": "Heavily right skewed. Most appointments have 0-10 waiting days — patients seen quickly. Very few wait beyond 50 days. Long tail goes up to 179 days — those patients have highest chance of forgetting.",
+    "scheduled_hour": "Peak booking hour is 7-8am. Most bookings happen between 7-11am then drop sharply after noon. Almost no bookings after 5pm. Clinic booking is essentially a morning activity.",
+    "day_of_week": "No appointments on Saturday or Sunday — clinic closed weekends. Tuesday and Wednesday are busiest days. Thursday noticeably quieter. Friday has decent volume but higher no-show rates.",
+    "previous_noshow_rate": "Massive spike at 0 — most patients are first-timers or have perfect attendance. Small groups at 0.2, 0.5, 1.0 are repeat no-show patients. Patients with rate 1.0 always miss — strongest predictor in the model.",
+    "gender": "65% female, 35% male. Women visit clinics more frequently — proactive about healthcare and bring children for checkups.",
+    "scholarship": "Only 10% of patients are on Bolsa Familia welfare program. Small group but important — financially disadvantaged patients face transport and work barriers affecting attendance.",
+    "hypertension": "20% of patients have hypertension. 1 in 5 is significant — chronic condition patients need regular monitoring so they are more motivated to attend.",
+    "diabetes": "7% diabetic. Smaller than hypertension but meaningful — diabetic patients need frequent checkups so expected to show up more consistently.",
+    "alcoholism": "Under 3% have alcoholism flagged. Very imbalanced column — limited individual predictive power but combined with other conditions still useful.",
+    "handicap": "Almost everyone is 0. Levels 1-4 extremely rare — barely visible in chart. Grouped into binary has-disability flag during feature engineering.",
+    "sms_received": "32% received SMS reminder, 68% did not. Majority got no reminder at all. SMS recipients paradoxically had higher no-show rates — confirmed in bivariate analysis.",
+    "noshow": "Clear 80-20 split — 88k showed up, 22k did not. This is the class imbalance problem. A naive model predicting everyone shows up gets 80% accuracy but is completely useless.",
+    "agegroup": "Adult (36-55) largest group at 30k. Teen smallest at 6k. Child correctly shows 21k after fixing age bins — infant appointments included. Senior group reliable attenders.",
+    "hascondition": "75% have no condition, 25% have at least one chronic condition. Quarter of patients are medically significant — these patients show up more reliably."
+  },
+  "bivariate": {
+    "num_num": {
+      "age_vs_waitingdays": "No relationship between age and waiting days. All ages wait roughly the same. Clinic does not prioritize slots by age — everyone waits equally regardless of how old they are.",
+      "age_vs_previousnoshowrate": "Horizontal lines pattern because PreviousNoShowRate takes discrete values based on appointment history. Younger patients have more spread — more appointment history. Elderly cluster near 0 — consistent attenders.",
+      "waitingdays_vs_previousnoshowrate": "Patients with high PreviousNoShowRate spread across ALL waiting day ranges — even same day appointments. Repeat no-show patients miss regardless of wait time. Their behavior is habitual not situational."
+    },
+    "num_cat": {
+      "age_by_noshow": "Young adults 15-35 have slightly higher no-show proportion. Elderly 60+ orange proportion shrinks — older patients show up more consistently. Age alone is not a strong predictor but direction is clear.",
+      "waitingdays_by_noshow": "Most powerful chart. At 0 waiting days no-show is tiny. As days increase no-show grows. Patients waiting 25+ days have much higher no-show proportion. Confirms WaitingDays is a strong predictor.",
+      "scheduledhour_by_noshow": "No-show proportion consistent across all hours — no dramatic difference. Slight increase around hour 13-15. Booking hour is a weak predictor on its own.",
+      "previousnoshowrate_by_noshow": "Most powerful chart. At rate 0 showed-up dominates massively. At rate 1.0 almost entirely no-show. Patients with high past no-show history almost always miss again. Strongest single feature in the dataset."
+    },
+    "cat_cat": {
+      "gender_by_noshow": "Orange proportion similar for both genders. Gender is not a strong predictor — male and female miss appointments at roughly the same rate.",
+      "scholarship_by_noshow": "Scholarship patients have visibly higher no-show proportion. Welfare patients miss more — financial and transport barriers make attendance harder.",
+      "hypertension_by_noshow": "Hypertensive patients have smaller no-show proportion. Chronic condition patients attend more — need regular medication and monitoring. Motivation is higher.",
+      "diabetes_by_noshow": "Same pattern as hypertension. Diabetic patients show up more reliably. Serious illness means stronger reason to attend.",
+      "alcoholism_by_noshow": "Small alcoholism group has slightly higher no-show proportion. Unpredictable lifestyle leads to more missed appointments.",
+      "sms_by_noshow": "Patients who got SMS have higher no-show proportion. Counterintuitive — SMS did not help. Because SMS was sent to patients booked further ahead who were already higher risk.",
+      "hascondition_by_noshow": "Patients with any condition have smaller no-show proportion. Combined medical condition flag confirms — sick patients show up more.",
+      "agegroup_by_noshow": "YoungAdults most likely to skip — busy schedules, low health urgency. Seniors and Children most reliable — elderly take health seriously, children brought by parents."
+    },
+    "neighbourhood": "Some neighbourhoods have 30%+ no-show rate vs 20% average. Geographic risk exists — certain areas consistently produce more missed appointments. Clinics in high-risk areas need more proactive outreach.",
+    "waitbucket": "Same day appointments — almost no no-shows. 1-7 days — no-show starts rising. 8-30 days — highest volume of no-shows in absolute numbers. 31+ days — worst no-show ratio. Longer the wait higher the risk."
+  },
+  "multivariate": {
+    "sms_by_waitbucket": "Same day gets no SMS — no time to send reminder. As waiting days increase SMS proportion grows. But long-wait patients still miss despite getting SMS — reminder alone is not enough.",
+    "scholarship_by_agegroup": "YoungAdults have most scholarship patients. Seniors on welfare very rare. Financial hardship concentrated in working-age groups who face more competing priorities."
+  },
+  "correlation": "All 4 numeric features are independent of each other — no multicollinearity. Each feature brings unique information to the model. No column needs to be dropped due to redundancy. Good news for modeling."
+}

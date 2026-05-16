@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Global Reset and Font */
+.stApp {
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Glassmorphism Containers for standard st.container / columns */
+div[data-testid="stVerticalBlock"] > div > div[data-testid="stVerticalBlock"] {
+    background: rgba(15, 23, 42, 0.4) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 16px !important;
+    padding: 20px !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.3s ease !important;
+}
+
+div[data-testid="stVerticalBlock"] > div > div[data-testid="stVerticalBlock"]:hover {
+    border: 1px solid rgba(56, 189, 248, 0.3) !important;
+    box-shadow: 0 8px 32px 0 rgba(56, 189, 248, 0.15) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Prevent outer blocks from inheriting the inner glass block style */
+div[data-testid="stVerticalBlock"] {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Buttons */
+.stButton > button {
+    background: linear-gradient(135deg, #38bdf8, #818cf8) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 10px 24px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4) !important;
+}
+
+.stButton > button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.6) !important;
+    filter: brightness(1.1) !important;
+}
+
+/* Inputs and Selectboxes */
+.stTextInput > div > div > input,
+.stSelectbox > div > div > div,
+.stNumberInput > div > div > input {
+    background-color: rgba(15, 23, 42, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+}
+
+.stTextInput > div > div > input:focus,
+.stSelectbox > div > div > div:focus,
+.stNumberInput > div > div > input:focus {
+    border-color: #38bdf8 !important;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2) !important;
+}
+
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+    color: #f8fafc !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.025em !important;
+}
+
+h1 {
+    color: #ffffff !important;
+    text-shadow: 0 0 15px rgba(56, 189, 248, 0.4), 0 4px 10px rgba(0, 0, 0, 0.6) !important;
+    padding-bottom: 10px;
+}
+
+h2 {
+    color: #ffffff !important;
+    text-shadow: 
+        1px 1px 0px #0ea5e9,
+        2px 2px 0px #0284c7,
+        3px 3px 8px rgba(0, 0, 0, 0.8) !important;
+    margin-bottom: 15px;
+}
+
+h3 {
+    color: #f8fafc !important;
+    text-shadow: 
+        1px 1px 0px #0ea5e9,
+        2px 2px 5px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* ── Customizing Sidebar 'home' Link ── */
+[data-testid="stSidebarNavItems"] li:first-child a,
+[data-testid="stSidebarNavItems"] li:first-child a span {
+    color: transparent !important;
+    position: relative;
+}
+[data-testid="stSidebarNavItems"] li:first-child a::after {
+    content: " Home Dashboard";
+    color: #f8fafc;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    white-space: nowrap;
+}
+[data-testid="stSidebarNavItems"] li:first-child a svg {
+    display: none !important;
+}
+
+/* ── Customizing Sidebar Page Navigation (Top Links) ── */
+[data-testid="stSidebarNavItems"] {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+[data-testid="stSidebarNavItems"] li a {
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 8px;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}
+[data-testid="stSidebarNavItems"] li a:hover {
+    background: rgba(56, 189, 248, 0.15);
+    transform: translateX(5px) !important;
+    border-color: #38bdf8;
+    background-color: rgba(56, 189, 248, 0.15) !important;
+}
+[data-testid="stSidebarNavItems"] li a[aria-current="page"] {
+    background: rgba(56, 189, 248, 0.25) !important;
+    border-left: 5px solid #38bdf8 !important;
+}
+
+/* ── Customizing Sidebar Radio Buttons (EDA Navigation) ── */
+[data-testid="stSidebar"] .stRadio > div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+[data-testid="stSidebar"] .stRadio label {
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 8px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+[data-testid="stSidebar"] .stRadio label:hover {
+    background: rgba(56, 189, 248, 0.15);
+    transform: translateX(5px);
+    border-color: #38bdf8;
+}
+[data-testid="stSidebar"] .stRadio label[data-checked="true"] {
+    background: rgba(56, 189, 248, 0.25);
+    border-left: 5px solid #38bdf8;
+}
+/* Hide the actual radio circle */
+[data-testid="stSidebar"] .stRadio div[role="radio"] div {
+    display: none;
+}
+/* Sidebar styling */
+[data-testid="stSidebar"] {
+    background-color: rgba(15, 23, 42, 0.8) !important;
+    backdrop-filter: blur(15px) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Metrics */
+[data-testid="stMetricValue"] {
+    color: #38bdf8 !important;
+}
+
+/* Hide default streamlit marks */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {background: transparent !important;}
+
+/* ── 3D Dataframe Styling ── */
+[data-testid="stDataFrame"] {
+    background: rgba(15, 23, 42, 0.4) !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(56, 189, 248, 0.3) !important;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.8), 
+                inset 0px 1px 1px rgba(255, 255, 255, 0.15), 
+                0px 0px 15px rgba(56, 189, 248, 0.1) !important;
+    overflow: hidden !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+[data-testid="stDataFrame"]:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.9), 
+                inset 0px 1px 1px rgba(255, 255, 255, 0.25), 
+                0px 0px 25px rgba(56, 189, 248, 0.3) !important;
+}
+
+[data-testid="stSidebar"] .stRadio label {
+    width: 100% !important;
+    box-sizing: border-box !important;
+}

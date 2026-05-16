@@ -248,9 +248,9 @@ Therefore, maximizing recall is strategically more valuable than maximizing accu
 
 ## 🏠 Home Dashboard
 
-```md
+
 ![Home Dashboard](assets/screenshots/home_dashboard.png)
-```
+
 
 ### Features
 
@@ -264,9 +264,9 @@ Therefore, maximizing recall is strategically more valuable than maximizing accu
 ## 💼 Business Overview
 
 
-```md
+
 ![Business Overview](assets/screenshots/business_overview.png)
-```
+
 
 ### Features
 
@@ -279,9 +279,9 @@ Therefore, maximizing recall is strategically more valuable than maximizing accu
 
 ## 📊 Analytics Dashboard
 
-```md
+
 ![Analytics Dashboard](assets/screenshots/analytics_dashboard.png)
-```
+
 
 ### Features
 
@@ -295,9 +295,9 @@ Therefore, maximizing recall is strategically more valuable than maximizing accu
 
 ## ⚡ Prediction System
 
-```md
+
 ![Prediction System](assets/screenshots/prediction_system.png)
-```
+
 
 ### Features
 

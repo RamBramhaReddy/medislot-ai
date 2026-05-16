@@ -1,4 +1,4 @@
- # 🏥 MediSlot AI — Intelligent Patient No-Show Prediction System
+# 🏥 MediSlot AI — Intelligent Patient No-Show Prediction System
 
 > A machine learning-powered healthcare analytics platform that predicts whether a patient is likely to miss their medical appointment — helping clinics shift from reactive scheduling to proactive healthcare management.
 
@@ -241,6 +241,71 @@ Therefore, maximizing recall is strategically more valuable than maximizing accu
     'scale_pos_weight': 4
 }
 ```
+
+---
+
+# 📸 Application Screenshots
+
+## 🏠 Home Dashboard
+
+```md
+![Home Dashboard](assets/screenshots/home_dashboard.png)
+```
+
+### Features
+
+* Premium healthcare analytics landing page
+* Glassmorphism dark UI
+* Business-focused AI healthcare branding
+* Interactive navigation system
+
+---
+
+## 💼 Business Overview
+
+
+```md
+![Business Overview](assets/screenshots/business_overview.png)
+```
+
+### Features
+
+* Real-world healthcare scheduling problem explanation
+* Operational impact visualization
+* Business-focused AI solution framing
+* Healthcare workflow insights
+
+---
+
+## 📊 Analytics Dashboard
+
+```md
+![Analytics Dashboard](assets/screenshots/analytics_dashboard.png)
+```
+
+### Features
+
+* Dataset intelligence dashboard
+* Pattern discovery visualizations
+* Relationship analysis charts
+* Behavioral insights exploration
+* Feature correlation analysis
+
+---
+
+## ⚡ Prediction System
+
+```md
+![Prediction System](assets/screenshots/prediction_system.png)
+```
+
+### Features
+
+* Real-time patient risk prediction
+* Interactive healthcare input system
+* AI-powered no-show probability scoring
+* Risk-based healthcare recommendations
+* High-risk patient identification
 
 ---
 
